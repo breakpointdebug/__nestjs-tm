@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/tasks?search=444",
+					"raw": "{{URL}}/tasks?search=",
 					"host": [
 						"{{URL}}"
 					],
@@ -21,12 +21,12 @@
 					"query": [
 						{
 							"key": "status",
-							"value": "DONE",
+							"value": "xxx",
 							"disabled": true
 						},
 						{
 							"key": "search",
-							"value": "444"
+							"value": ""
 						}
 					]
 				}
@@ -87,7 +87,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "517653e0-2551-11eb-aca6-b547622e5e32"
+							"value": "2"
 						}
 					]
 				}
