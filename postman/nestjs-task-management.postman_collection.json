@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/tasks?search=",
+					"raw": "{{URL}}/tasks?status=IN_PROGRESS&search=a",
 					"host": [
 						"{{URL}}"
 					],
@@ -21,12 +21,11 @@
 					"query": [
 						{
 							"key": "status",
-							"value": "xxx",
-							"disabled": true
+							"value": "IN_PROGRESS"
 						},
 						{
 							"key": "search",
-							"value": ""
+							"value": "a"
 						}
 					]
 				}
@@ -87,7 +86,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "2"
+							"value": "4"
 						}
 					]
 				}
@@ -111,7 +110,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "68d20640-2553-11eb-a91f-0fc3bebf2414"
+							"value": "2"
 						}
 					]
 				}
@@ -146,7 +145,7 @@
 					"variable": [
 						{
 							"key": "id",
-							"value": "f7de8530-2557-11eb-99bc-654d4c950fb7"
+							"value": "1"
 						}
 					]
 				}
