@@ -11,14 +11,23 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/tasks",
-					"protocol": "http",
+					"raw": "{{URL}}/tasks?search=444",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"tasks"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "DONE",
+							"disabled": true
+						},
+						{
+							"key": "search",
+							"value": "444"
+						}
 					]
 				}
 			},
@@ -34,12 +43,12 @@
 					"urlencoded": [
 						{
 							"key": "title",
-							"value": "test",
+							"value": "aaa",
 							"type": "text"
 						},
 						{
 							"key": "description",
-							"value": "111",
+							"value": "444",
 							"type": "text"
 						}
 					],
@@ -50,14 +59,95 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/tasks",
-					"protocol": "http",
+					"raw": "{{URL}}/tasks",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /tasks/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/tasks/:id",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"tasks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "517653e0-2551-11eb-aca6-b547622e5e32"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /tasks/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/tasks/:id",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"tasks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "68d20640-2553-11eb-a91f-0fc3bebf2414"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH /tasks/:id/status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "status",
+							"value": "IN_PROGRESS",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/tasks/:id/status",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"tasks",
+						":id",
+						"status"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "f7de8530-2557-11eb-99bc-654d4c950fb7"
+						}
 					]
 				}
 			},
