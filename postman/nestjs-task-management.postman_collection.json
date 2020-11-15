@@ -151,6 +151,39 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "POST /auth/signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "xxxx",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "A1a$xxxx",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/auth/signup",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
