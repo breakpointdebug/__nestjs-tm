@@ -13,7 +13,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eHgiLCJpYXQiOjE2MDU0OTUzMDEsImV4cCI6MTYwNTQ5ODkwMX0.OBs5no_4UQ6V3FYYpBEqwLJHuTZWlk99J8wKVmDFZBQ",
+							"value": "{{TOKEN}}",
 							"type": "string"
 						}
 					]
@@ -21,7 +21,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/tasks?status=IN_PROGRESS&search=a",
+					"raw": "{{URL}}/tasks?status=OPEN&search=a",
 					"host": [
 						"{{URL}}"
 					],
@@ -31,7 +31,7 @@
 					"query": [
 						{
 							"key": "status",
-							"value": "IN_PROGRESS"
+							"value": "OPEN"
 						},
 						{
 							"key": "search",
@@ -45,6 +45,16 @@
 		{
 			"name": "POST /tasks",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -52,7 +62,7 @@
 					"urlencoded": [
 						{
 							"key": "title",
-							"value": "aaa",
+							"value": "bbb",
 							"type": "text"
 						},
 						{
@@ -82,31 +92,17 @@
 		{
 			"name": "GET /tasks/:id",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/tasks/:id",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"tasks",
-						":id"
-					],
-					"variable": [
+				"auth": {
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "id",
-							"value": "4"
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
 						}
 					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "DELETE /tasks/:id",
-			"request": {
-				"method": "DELETE",
+				},
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "{{URL}}/tasks/:id",
@@ -128,8 +124,52 @@
 			"response": []
 		},
 		{
+			"name": "DELETE /tasks/:id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/tasks/:id",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"tasks",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "PATCH /tasks/:id/status",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -137,7 +177,7 @@
 					"urlencoded": [
 						{
 							"key": "status",
-							"value": "IN_PROGRESS",
+							"value": "OPEN",
 							"type": "text"
 						}
 					]
@@ -172,7 +212,7 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "xxxx",
+							"value": "user1",
 							"type": "text"
 						},
 						{
@@ -197,6 +237,18 @@
 		},
 		{
 			"name": "POST /auth/signin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "823dab20-13aa-4ff2-b188-d54593f002ca",
+						"exec": [
+							"pm.environment.set('TOKEN', pm.response.json().accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -205,7 +257,7 @@
 					"urlencoded": [
 						{
 							"key": "username",
-							"value": "xxxx",
+							"value": "user2",
 							"type": "text"
 						},
 						{

@@ -7,7 +7,8 @@ import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeOrmConfig), // .forRoot() apply to all submodules
-    TasksModule, AuthModule
+    TasksModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
