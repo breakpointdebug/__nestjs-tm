@@ -8,6 +8,16 @@
 		{
 			"name": "GET /tasks",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Inh4eHgiLCJpYXQiOjE2MDU0OTUzMDEsImV4cCI6MTYwNTQ5ODkwMX0.OBs5no_4UQ6V3FYYpBEqwLJHuTZWlk99J8wKVmDFZBQ",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -180,6 +190,39 @@
 					"path": [
 						"auth",
 						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /auth/signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "xxxx",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "A1a$xxxx",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/auth/signin",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"auth",
+						"signin"
 					]
 				}
 			},
