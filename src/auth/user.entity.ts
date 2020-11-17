@@ -18,7 +18,7 @@ export class User extends BaseEntity {
   salt: string;
 
   // type: task, inverse; how to access the user that owns task, options; eager = true for user
-  @OneToMany(type => Task, task => task.user, { eager: true})
+  @OneToMany(type => Task, task => task.user, { eager: true })
   tasks: Task[];
 
   async validatePassword(password: string): Promise<boolean> {

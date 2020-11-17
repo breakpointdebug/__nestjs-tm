@@ -12,7 +12,7 @@ export class AuthCredentialsDto {
   @Matches(
     // least 1 upper case, at least 1 lower case, at least 1 number or special character
     /((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
-    { message: 'password too weak' }
+    { message: 'password too weak' } // custom error message
   )
   password: string;
 }
