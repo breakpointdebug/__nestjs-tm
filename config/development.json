@@ -1,0 +1,13 @@
+{
+  "config": {
+    "db": {
+      "host": "localhost",
+      "username": "postgres",
+      "password": "111111",
+      "synchronize": true
+    },
+    "jwt": {
+      "secret": "8989D@d20932"
+    }
+  }
+}
