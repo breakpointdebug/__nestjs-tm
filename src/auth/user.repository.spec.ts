@@ -24,7 +24,7 @@ describe('UserRepository', () => {
 
   afterEach(() => {
     jest.clearAllMocks(); // so that you clear all attached .spyOn()
-  })
+  });
 
   describe('signUp', () => {
     let save;
@@ -32,7 +32,7 @@ describe('UserRepository', () => {
     beforeEach(() => {
       save = jest.fn();
       userRepository.create = jest.fn().mockReturnValue({ save });
-    })
+    });
 
     it('successfuly signs up the user', () => {
       save.mockResolvedValue(undefined);
@@ -52,6 +52,7 @@ describe('UserRepository', () => {
 
   describe('validateUserPassword', () => {
     let user;
+
     beforeEach(() => {
         userRepository.findOne = jest.fn();
         user = new User();

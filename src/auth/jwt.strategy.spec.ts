@@ -6,7 +6,7 @@ import { UnauthorizedException } from '@nestjs/common';
 
 const mockUserRepository = () => ({
   findOne: jest.fn(),
-})
+});
 
 describe('JwtStrategy', () => {
   let jwtStrategy: JwtStrategy;

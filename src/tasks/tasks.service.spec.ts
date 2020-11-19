@@ -44,7 +44,6 @@ describe('TasksService', () => {
 
       expect(taskRepository.getTasks).toHaveBeenCalled();
       expect(result).toEqual('somevalue');
-
     });
   })
 
@@ -90,6 +89,7 @@ describe('TasksService', () => {
       await tasksService.deleteTaskById(1, mockUser);
       expect(taskRepository.delete).toHaveBeenCalledWith({ id: 1, userId: mockUser.id});
     });
+
     it('throws an error as task could not be found', async () => {
       taskRepository.delete.mockResolvedValue({ affected: 0 });
       expect(tasksService.deleteTaskById(1, mockUser)).rejects.toThrow(NotFoundException);

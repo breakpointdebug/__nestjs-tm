@@ -12,10 +12,9 @@ describe('UserEntity', () => {
 
   afterEach(() => {
     jest.clearAllMocks(); // so that you clear all attached .spyOn()
-  })
+  });
 
   describe('validatePassword', () => {
-
     it('returns true as password is valid', async () => {
       // because bcrypt.hash is read-only
       const spy = jest.spyOn(bcrypt, "hash").mockImplementation(() => Promise.resolve(user.password));
@@ -27,6 +26,7 @@ describe('UserEntity', () => {
       expect(result).toEqual(true);
       spy.mockRestore(); // reset implementations back to default
     });
+
     it('returns false as password is invalid', async () => {
       // because bcrypt.hash is read-only
       const spy = jest.spyOn(bcrypt, "hash").mockImplementation(() => Promise.resolve("wrongPassword"));
